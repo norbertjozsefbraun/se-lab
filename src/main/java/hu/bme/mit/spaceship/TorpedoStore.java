@@ -13,7 +13,7 @@ public class TorpedoStore {
   private double FAILURE_RATE = 0.0; //NOSONAR
 
   private int torpedoCount = 0;
-
+  //so we can reuse the random obj
   private Random generator = new Random();
 
   public TorpedoStore(int numberOfTorpedos){
@@ -40,7 +40,7 @@ public class TorpedoStore {
     // simulate random overheating of the launcher bay which prevents firing
     
     double r = generator.nextDouble();
-
+    //This works as it should, counting when firing, and not when it's not
     if (r >= FAILURE_RATE) {
       // successful firing
       this.torpedoCount -= numberOfTorpedos;
